@@ -17,8 +17,8 @@ app.config['MAIL_DEFAULT_SENDER'] = 'chimevictor365@gmail.com'
 mail = Mail(app)
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -41,7 +41,7 @@ def contact():
         print(f"Error: {e}")
         flash('error')
         
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     # host='0.0.0.0' is the key to mobile access
