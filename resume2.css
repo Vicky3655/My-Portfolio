@@ -334,7 +334,7 @@ footer h1 {
         content: "☰";
         font-size: 30px;
         color: #E67E22;
-        background: #4E2A19;
+        background: #eee;
         border: #E67E22 solid 1px;
         border-radius: 8px;
         padding: 5px 10px;
@@ -370,7 +370,7 @@ footer h1 {
     /* 4. The Close Button Styling */
     /* This matches your uploaded screenshot exactly */
     .links::before {
-        content: "✕ Close Menu";
+        content: " Menu ";
         display: block;
         width: 100%;
         padding: 20px;
