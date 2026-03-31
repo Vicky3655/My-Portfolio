@@ -1,0 +1,405 @@
+body {
+    background: white;
+    color: #333; 
+    font-family: "Lora", serif;
+    margin: 0;
+    overflow-x: hidden; 
+}
+
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #E67E22;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+
+.links a {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #E67E22;
+}
+.buttons{
+    display: flex;
+    gap: 30px;
+}
+.btn {
+    background-color: #E67E22;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+.btn:hover {
+    background-color: #4E2A19;
+    color: #FFFFFF;
+}
+.btn1 {
+    background-color: transparent;
+    color: #4E2A19;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid #E67E22;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+.btn1:hover {
+    background-color: #4E2A19;
+    color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 40px;
+}
+
+.content0 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content1 {
+    background: linear-gradient(to right, #E67E22, #4E2A19);
+    padding: 12px 20px;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 8px;
+    letter-spacing: 1px;
+}
+
+.content h1 {
+    font-size: clamp(32px, 5vw, 48px); 
+    color: #4E2A19;
+    margin: 0;
+}
+
+.content .name {
+    background: linear-gradient(to right, #E67E22, #4E2A19);
+   -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.content p {
+    font-size: 18px;
+    color: #4E2A19;
+    max-width: 500px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Profile Image Container */
+.contain {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.contain::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 85%;
+    background: linear-gradient(to right, #E67E22, #4E2A19);
+    border-radius: 40px;
+    z-index: 0;
+}
+
+.contain img {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    position: relative;
+    z-index: 10;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+}
+
+/* About Section */
+section {
+    background: #f0eeee;
+    padding: 60px 5%;
+}
+
+.about {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h1 {
+    color: #E67E22;
+    font-size: 32px;
+}
+
+section h2 {
+    color: #4E2A19;
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 1.6;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.images img {
+    height: 35px;
+    width: 35px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.images img:hover {
+    opacity: 1;
+}
+
+/* Footer */
+footer {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+footer h1 {
+    font-size: 16px;
+    color: #4E2A19;
+}
+
+
+
+/* --- ANIMATION DEFINITIONS --- */
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Subtle upward float for buttons and secondary sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.content0 {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+
+.contain {
+    animation: fadeInScale 1.2s ease-out forwards;
+}
+
+
+.content1 {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards; /* Delay of 0.3s */
+}
+
+.buttons {
+    animation: fadeInUp 0.8s ease-out 0.6s backwards; /* Delay of 0.6s */
+}
+
+.about {
+    animation: fadeInUp 1.2s ease-out 0.9s backwards; /* Appears last */
+}
+
+.btn:hover, .btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Pulse effect for the social icons */
+.images a img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    transition: transform 0.3s ease;
+}
+
+/* MEDIA QUERIES */
+
+/* For Tablets and smaller */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column-reverse; /* Stack image on top for mobile/tablet */
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .content0 {
+        align-items: center;
+    }
+
+    .content p {
+        margin: 0 auto;
+    }
+}
+
+/* For Phones */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .links {
+        gap: 15px;
+    }
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* This acts as the "Open" button */
+    .logo::after {
+        content: "☰";
+        font-size: 30px;
+        color: #E67E22;
+        cursor: pointer;
+    }
+
+    /* 2. The Author Box (Drawer) - Hidden by default */
+    .links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen */
+        width: 280px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+        padding: 20px;
+        transition: right 0.4s ease-in-out;
+        z-index: 2500;
+    }
+
+    /* 3. PERSISTENT TOGGLE LOGIC */
+    /* This makes the box STAY when 'nav' is interacted with */
+    nav:focus-within .links,
+    nav:active .links {
+        right: 0; /* Box comes out and stays */
+    }
+
+    /* 4. The CLOSE Button */
+    /* This sits at the top of the list to hide the menu */
+    .links::before {
+        content: "✕ Close Menu";
+        display: block;
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        background: #4E2A19; /* Dark brown for contrast */
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .links a {
+        padding: 18px;
+        border-bottom: 1px solid #f5f5f5;
+        width: 100%;
+        color: #333;
+        font-size: 18px;
+        box-sizing: border-box;
+    }
+
+    /* Ensure the "Close" button is the primary way to exit */
+    .links::before:active {
+        display: none; /* Triggers the focus loss to close the menu */
+    }
+
+    .container {
+        margin-top: 100px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .content0 { order: 1; }
+    .contain { order: 2; margin-top: 40px; }
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn, .btn1 {
+        text-align: center;
+    }
+}
