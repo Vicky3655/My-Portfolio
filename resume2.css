@@ -334,6 +334,10 @@ footer h1 {
         content: "☰";
         font-size: 30px;
         color: #E67E22;
+        background: #4E2A19;
+        border: #E67E22 solid 1px;
+        border-radius: 8px;
+        padding: 5px 10px;
         cursor: pointer;
     }
 
