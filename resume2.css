@@ -320,7 +320,7 @@ footer h1 {
     }
 
     section {
-        padding-top: 160px; 
+        padding-top: 100px; 
     }
     .logo {
         width: 100%;
@@ -373,7 +373,7 @@ footer h1 {
         content: " Menu ";
         display: block;
         width: 100%;
-        padding: 15px;
+        padding: 20px;
         background: linear-gradient(to right, #E67E22, #4E2A19); /* The dark brown from your image */
         color: white;
         text-align: center;
@@ -405,7 +405,7 @@ footer h1 {
 
     /* Adjust main content spacing */
     .container {
-        margin-top: 100px;
+        margin-top: 30px;
         flex-direction: column;
         text-align: center;
     }
