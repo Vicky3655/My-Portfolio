@@ -262,7 +262,7 @@ footer h1 {
     /* We treat the logo area as the 'Open' trigger */
     .logo::after {
         content: "☰";
-        font-size: 30px;
+        font-size: 15px;
         color: #E67E22;
         background: #eee;
         border: #E67E22 solid 1px;
@@ -315,13 +315,13 @@ footer h1 {
 
     /* 5. Menu Links Styling */
     .links a {
-        padding: 20px 30px;
+        padding: 10px 15px;
         border-bottom: 1px solid #eee;
         width: 100%;
         color: #333;
         font-family: "Montserrat", sans-serif;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 15px;
         text-decoration: none;
         box-sizing: border-box;
         transition: background 0.3s;
