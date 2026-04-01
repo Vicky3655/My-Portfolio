@@ -370,7 +370,7 @@ footer h1 {
         content: " Menu ";
         display: block;
         width: 100%;
-        padding: 20px;
+        padding: 15px;
         background: linear-gradient(to right, #E67E22, #4E2A19); /* The dark brown from your image */
         color: white;
         text-align: center;
@@ -402,7 +402,7 @@ footer h1 {
 
     /* Adjust main content spacing */
     .container {
-        margin-top: 100px;
+        margin-top: 30px;
         flex-direction: column;
         text-align: center;
     }
