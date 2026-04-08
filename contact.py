@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template, flash, redirect, url_for
 from flask_mail import Mail, Message
 import os
+import os
+# ... inside your config ...
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 
 app = Flask(__name__)
 app.secret_key = 'zigis_plug_secret'
