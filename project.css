@@ -119,6 +119,9 @@ nav {
     padding: 80px 5%;
     background: linear-gradient(to left, #E67E22, #4E2A19);
 }
+.section2 a {
+    text-decoration: none;
+}
 .section2 h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 2.5rem;
