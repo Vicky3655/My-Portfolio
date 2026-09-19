@@ -465,9 +465,19 @@ footer h1 {
     }
     .logo {
         width: 100%;
-        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        gap: 4px 10px;
+    }
+
+    .logo-name {
+        font-size: 26px;
+    }
+
+    .logo-sub {
+        width: 100%;
+        text-align: center;
     }
 
     .profile-card {
