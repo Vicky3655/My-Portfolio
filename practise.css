@@ -463,21 +463,35 @@ footer h1 {
         gap: 15px;
         bottom: 0;
     }
+    header {
+        margin: 12px 12px 0;
+        border-radius: 18px;
+        box-shadow: 0 10px 26px rgba(23,63,53,0.15);
+        overflow: hidden;
+    }
+
     .logo {
         width: 100%;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        gap: 4px 10px;
+        gap: 6px;
+    }
+
+    .logo-mark {
+        width: 11px;
+        height: 11px;
     }
 
     .logo-name {
-        font-size: 26px;
+        font-size: 19px;
+        white-space: nowrap;
     }
 
     .logo-sub {
-        width: 100%;
-        text-align: center;
+        font-size: 8.5px;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
     }
 
     .profile-card {
@@ -964,6 +978,7 @@ footer h1 {
     .contact-photo-wrap {
         width: 260px;
         height: 260px;
+        margin: 26px auto;
     }
 
     .contact-photo {
@@ -978,8 +993,8 @@ footer h1 {
     .orbit-icon-5 { left: 6px;   top: 90px; }
 
     .orbit-badge {
-        width: 42px;
-        height: 42px;
+        width: 36px;
+        height: 36px;
     }
 
     .contact-heading {
