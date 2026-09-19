@@ -1,0 +1,749 @@
+:root {
+    --forest-green: #173F35;
+    --forest-green-deep: #0E2820;
+    --cream: #F8F5EE;
+    --gold: #C8A951;
+    --gold-light: #DFC988;
+    --white: #FFFFFF;
+}
+
+/* Side-slide transition between pages, driven by script.js: a colored panel
+   sweeps in to cover the screen on click, then the browser navigates; the
+   new page's own overlay sweeps back out to reveal it. Respects
+   prefers-reduced-motion (script.js skips the animation for those users). */
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, var(--forest-green), var(--forest-green-deep));
+    z-index: 99999;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: overlaySweepOut 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.05s forwards;
+}
+
+.page-transition-overlay.is-sweeping-in {
+    animation: overlaySweepIn 0.42s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* "My Portfolio" only appears during the click-triggered sweep (covering the
+   screen), not on the page-load reveal — hidden by default, faded in only
+   when .is-sweeping-in is present. */
+.page-transition-text {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    font-size: clamp(32px, 6vw, 56px);
+    color: var(--white);
+    opacity: 0;
+}
+
+.page-transition-overlay.is-sweeping-in .page-transition-text {
+    animation: overlayTextFade 0.3s ease-out 0.2s forwards;
+}
+
+@keyframes overlayTextFade {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes overlaySweepOut {
+    from { transform: translateX(0%); }
+    to   { transform: translateX(100%); }
+}
+
+@keyframes overlaySweepIn {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0%); }
+}
+
+body {
+    background: var(--cream);
+    color: #333; 
+    font-family: "Lora", serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-mark {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.logo-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--forest-green);
+}
+
+.logo-sub {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+
+.links a {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: #555;
+    margin-left: 0;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: var(--gold);
+}
+
+.links a:active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+}
+
+/* Active page highlight (desktop nav) */
+.links a.nav-active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+}
+
+
+.h1 h1 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    color: var(--forest-green);
+    margin-bottom: 50px;
+}
+.mobile-author-box {
+    display: none;
+}   
+
+.section2 {
+    text-align: center;
+    padding: 80px 5%;
+    background: linear-gradient(to left, var(--forest-green), var(--forest-green-deep));
+}
+.section2 h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;       /* light text needed against the dark gradient background */
+    margin-bottom: 30px;
+}
+.section2 button {
+    background: var(--gold);
+    color: var(--forest-green);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+.section2 button:hover {
+    background: var(--white);
+    color: var(--forest-green);
+    border: 2px solid var(--gold);
+    transform: scale(1.1);
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+footer h1 {
+    font-size: 16px;
+    color: var(--forest-green);
+}
+
+/* --- PROJECT PAGE ANIMATIONS --- */
+
+/* Entrance for the main title */
+@keyframes projectTitleFade {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- APPLYING TO YOUR PROJECT CLASSES --- */
+
+/* Main "Projects" Heading */
+.h1 h1 {
+    animation: projectTitleFade 0.8s ease-out forwards;
+}
+
+/* Spotlight Call-to-Action Section at the bottom */
+.section2 {
+    animation: projectTitleFade 1s ease-out 0.9s backwards;
+}
+
+.section2 button {
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+
+
+
+/* --- CASE STUDIES --- */
+
+.case-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 130px 5% 60px;
+}
+
+.case-intro {
+    text-align: center;
+    color: #666;
+    max-width: 650px;
+    margin: -30px auto 40px;
+    font-size: 1.05rem;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.case-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.case-tag {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.case-card h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin: 0;
+    line-height: 1.3;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.case-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.case-read-more {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin-top: 6px;
+    transition: color 0.2s ease;
+}
+
+.case-card:hover .case-read-more {
+    color: var(--gold);
+}
+
+/* Modal — CSS-only via :target, no JS needed. Linking to #case-N shows it,
+   linking back to # (the backdrop or close button) hides it again. */
+.case-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.case-modal:target {
+    display: flex;
+}
+
+.case-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 40, 32, 0.65);
+    cursor: pointer;
+}
+
+.case-modal-content {
+    position: relative;
+    background: var(--white);
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    animation: caseModalIn 0.3s ease-out forwards;
+}
+
+@keyframes caseModalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.case-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    color: var(--forest-green);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+    line-height: 1;
+    z-index: 2;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.case-modal-close:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.case-modal-inner {
+    overflow-y: auto;
+    padding: 56px 44px 50px;
+}
+
+.case-modal-inner h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--forest-green);
+    margin: 6px 0 20px;
+    line-height: 1.25;
+}
+
+.case-modal-inner h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin: 26px 0 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cream);
+}
+
+.case-modal-inner h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 18px;
+}
+
+.case-modal-inner h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 16px 0 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.case-modal-inner p {
+    color: #444;
+    line-height: 1.75;
+    margin: 0 0 10px;
+}
+
+.case-modal-inner ul,
+.case-modal-inner ol {
+    margin: 0 0 10px;
+    padding-left: 22px;
+    color: #444;
+    line-height: 1.75;
+}
+
+.case-modal-inner li {
+    margin-bottom: 4px;
+}
+
+.case-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+}
+
+.case-skills li {
+    background: var(--cream);
+    color: var(--forest-green);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 0;
+}
+
+.case-modal-inner blockquote {
+    margin: 0 0 10px;
+    padding: 16px 20px;
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--forest-green);
+    line-height: 1.7;
+}
+
+.workflow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 16px;
+}
+
+.workflow span {
+    background: var(--cream);
+    color: var(--forest-green);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.workflow span:not(:last-child)::after {
+    content: '\2192';
+    margin-left: 6px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.case-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 12px;
+}
+
+.case-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.case-table th,
+.case-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--cream);
+    white-space: nowrap;
+}
+
+.case-table th {
+    background: var(--forest-green);
+    color: var(--white);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-table tbody tr:nth-child(even) {
+    background: var(--cream);
+}
+
+/* --- RESPONSIVE DESIGN (Mobile First) --- */
+@media (max-width: 768px) {
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-modal-inner {
+        padding: 56px 22px 40px;
+    }
+
+    .case-modal-content {
+        max-height: 90vh;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .h1 h1 {
+        font-size: 2.2rem;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    /* ════════════════════════════════════════════
+       MOBILE BOTTOM NAV — redesigned
+       Order: Resume · Projects · HOME (raised) · Contact
+    ════════════════════════════════════════════ */
+
+    .mobile-author-box {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: linear-gradient(to right, var(--forest-green), var(--forest-green-deep));
+        height: 70px;
+        justify-content: space-around;
+        align-items: flex-end;
+        z-index: 9999;
+        margin: 0;
+        padding: 0 0 8px 0;
+        border: none;
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -4px 20px rgba(23,63,53,0.25);
+        animation: navSlideUp 0.55s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        overflow: visible;
+    }
+
+    .mobile-author-box a {
+        text-decoration: none;
+        color: rgba(255,255,255,0.7);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 9px;
+        flex: 1;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s ease, transform 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .mobile-author-box div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .mobile-author-box svg {
+        height: 22px;
+        width: 22px;
+        transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .mobile-author-box h2 {
+        font-size: 9px;
+        font-weight: 700;
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        color: inherit;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+    }
+
+    /* Active page state */
+    .mobile-author-box a.mob-active {
+        color: #ffffff;
+    }
+    .mobile-author-box a.mob-active svg {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 2px 6px rgba(255,255,255,0.4));
+    }
+
+    /* Tap ripple */
+    .mobile-author-box a::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0.18);
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        pointer-events: none;
+    }
+    .mobile-author-box a:active::after {
+        transform: scale(2.5);
+        opacity: 1;
+        transition: 0s;
+    }
+    .mobile-author-box a:active {
+        color: #ffffff;
+    }
+    .mobile-author-box a:active svg {
+        transform: scale(0.85);
+        transition: transform 0.08s;
+    }
+
+    /* ── HOME — raised center hub button ── */
+    .mobile-author-box a.mob-home {
+        flex: 1.2;
+        overflow: visible;
+        color: #ffffff;
+        align-items: flex-end;
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    .mobile-author-box a.mob-home div {
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        border-radius: 50%;
+        width: 58px;
+        height: 58px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 -6px 20px rgba(200,169,81,0.55), 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(-18px);
+        border: 3px solid rgba(255,255,255,0.25);
+        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+                    box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-author-box a.mob-home h2 {
+        display: none;
+    }
+
+    .mobile-author-box a.mob-home svg {
+        height: 26px;
+        width: 26px;
+        color: var(--forest-green);
+        filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+        transform: none;
+    }
+
+    .mobile-author-box a.mob-home:active div {
+        transform: translateY(-14px) scale(0.9);
+        box-shadow: 0 -2px 10px rgba(200,169,81,0.3);
+        transition: transform 0.08s, box-shadow 0.08s;
+    }
+
+    .mobile-author-box a.mob-home.mob-active div {
+        box-shadow: 0 -6px 20px rgba(200,169,81,0.7),
+                    0 0 0 4px rgba(255,255,255,0.25),
+                    0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(-20px);
+    }
+
+    .mobile-author-box a.mob-home div::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0.25);
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-author-box a.mob-home:active div::after {
+        transform: scale(2);
+        opacity: 1;
+        transition: 0s;
+    }
+
+    @keyframes navSlideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    /* Prevent content being hidden behind the fixed nav bar */
+    body {
+        padding-bottom: 80px;
+    }
+
+    footer {
+        display: none;
+    }
+}
