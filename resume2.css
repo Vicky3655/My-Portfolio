@@ -420,7 +420,8 @@ footer h1 {
 
 @media (max-width: 900px) {
     .contain11 {
-        flex-direction: column; 
+        flex-direction: column;
+        gap: 24px;
     }
     
     .contain12 {
@@ -438,6 +439,23 @@ footer h1 {
     nav .links {
         display: none;
     }
+
+    .logo {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 4px 10px;
+    }
+
+    .logo-name {
+        font-size: 26px;
+    }
+
+    .logo-sub {
+        width: 100%;
+        text-align: center;
+    }
     
     .contain1 {
         flex-direction: row;
@@ -445,8 +463,16 @@ footer h1 {
         text-align: center;
     }
 
+    .box {
+        padding: 24px 20px;
+    }
+
+    .class {
+        grid-template-columns: 1fr;
+    }
+
     section {
-        padding-top: 80px; /* was 10px — content was overlapping the fixed header */
+        padding-top: 110px; /* raised from 80px — the nav logo can now wrap to two lines (cursive name + subtitle), making the fixed header taller */
     }
 
     /* ════════════════════════════════════════════
