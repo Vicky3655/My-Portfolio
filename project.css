@@ -550,21 +550,38 @@ footer h1 {
         font-size: 2.2rem;
     }
 
+    header {
+        left: 12px;
+        right: 12px;
+        top: 12px;
+        width: auto;
+        border-radius: 18px;
+        box-shadow: 0 10px 26px rgba(23,63,53,0.15);
+        overflow: hidden;
+    }
+
     .logo {
         width: 100%;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        gap: 4px 10px;
+        gap: 6px;
+    }
+
+    .logo-mark {
+        width: 11px;
+        height: 11px;
     }
 
     .logo-name {
-        font-size: 26px;
+        font-size: 19px;
+        white-space: nowrap;
     }
 
     .logo-sub {
-        width: 100%;
-        text-align: center;
+        font-size: 8.5px;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
     }
 
     nav .links {
