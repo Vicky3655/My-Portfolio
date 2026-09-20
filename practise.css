@@ -975,26 +975,8 @@ footer h1 {
         gap: 40px;
     }
 
-    .contact-photo-wrap {
-        width: 260px;
-        height: 260px;
-        margin: 26px auto;
-    }
-
-    .contact-photo {
-        width: 190px;
-        height: 190px;
-    }
-
-    .orbit-icon-1 { left: 130px; top: 0px; }
-    .orbit-icon-2 { left: 254px; top: 90px; }
-    .orbit-icon-3 { left: 206px; top: 235px; }
-    .orbit-icon-4 { left: 54px;  top: 235px; }
-    .orbit-icon-5 { left: 6px;   top: 90px; }
-
-    .orbit-badge {
-        width: 36px;
-        height: 36px;
+    .contact-photo-side {
+        display: none;
     }
 
     .contact-heading {
